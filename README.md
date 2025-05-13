@@ -5,10 +5,10 @@
 
 ## Introduction :
 Concevoir une infrastructure web minimale qui permet à un utilisateur d’accéder à un site comme www.foobar.com MAIS, un point de défaillance unique (SPOF), une indisponibilité pendant les maintenances, et aucune capacité à monter en charge. Voyons plus loins maintenant, passons sur des composants séparés et équilibrage de charge et surtout une infrastructure sécurisée et surveillée .
+![Diagramme](bandeau.png)
 
 
-
-### Infrastructure :
+## Infrastructure :
 
 
 1. *__Simple web stack__*
@@ -25,7 +25,7 @@ Concevoir une infrastructure web minimale qui permet à un utilisateur d’accé
 
 ![Diagramme](bandeau.png)
 
-### 1) Simple web stack
+## 1) Simple web stack
 
 1. L'utilisateur veut accéder à un site web, par exemple, www.foobar.com.
 2. Le DNS prend la résolution du nom de domaine (comme www.foobar.com) en une adresse IP (par exemple, 8.8.8.8)
@@ -35,7 +35,7 @@ Concevoir une infrastructure web minimale qui permet à un utilisateur d’accé
 
 ![Diagramme](0-simple_web_stack.png)
 ![Diagramme](bandeau.png)
-### 2) Distributed web infrastructure
+## 2) Distributed web infrastructure
  le DNS résout le nom de domaine et redirige la demande vers un load balancer. Ce dernier répartit la charge entre plusieurs serveurs web. Les serveurs web, à leur tour, traitent les requêtes et les envoient aux serveurs d'application pour une logique métier.(trop de traffic)
 
 
@@ -48,7 +48,7 @@ Concevoir une infrastructure web minimale qui permet à un utilisateur d’accé
 
 ![Diagramme](1-distributed_web_infrastructure.png)
 ![Diagramme](bandeau.png)
-### Secured and monitored web infrastructure
+## 3) Secured and monitored web infrastructure
 
 1. Certificat SSL : Le trafic est chiffré à l’aide d’un certificat SSL
 2. 1st Firewall :  il bloque tout accès non autorisé et protège le réseau contre des attaques
@@ -56,14 +56,14 @@ Concevoir une infrastructure web minimale qui permet à un utilisateur d’accé
 4. 3rd firwall :  garantit que seules les requêtes autorisées sont transmises des serveurs web aux serveurs d'application. 
 ![Diagramme](2-secured_and_monitored_web_infrastructure.png)
 ![Diagramme](bandeau.png)
-### Scale up
+## 4) Scale up
 
 ![Diagramme](3-scale_up.png)
 Ajout d'un load balancer pour rediriger le trafic en cas de défaillance du premier.
 ![Diagramme](bandeau.png)
 
 
-### Conclusion : 
+## Conclusion : 
 
 Pour une infrastructure web efficace, il est crucial d'avoir un bon équilibre entre sécurité, disponibilité, performance, évolutivité et surveillance.
 

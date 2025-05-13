@@ -23,7 +23,7 @@ Concevoir une infrastructure web minimale qui permet à un utilisateur d’accé
 4. *__Scale up__*
 " Garantir une disponibilité continue en répartissant intelligemment le trafic et en doublant les points de redondance pour éviter toute interruption. "
 
-
+![Diagramme](bandeau.png)
 
 ### 1) Simple web stack
 
@@ -34,7 +34,7 @@ Concevoir une infrastructure web minimale qui permet à un utilisateur d’accé
 5. La base de données stocke toutes les informations nécessaires à l'application
 
 ![Diagramme](0-simple_web_stack.png)
-
+![Diagramme](bandeau.png)
 ### 2) Distributed web infrastructure
  le DNS résout le nom de domaine et redirige la demande vers un load balancer. Ce dernier répartit la charge entre plusieurs serveurs web. Les serveurs web, à leur tour, traitent les requêtes et les envoient aux serveurs d'application pour une logique métier.(trop de traffic)
 
@@ -47,6 +47,7 @@ Concevoir une infrastructure web minimale qui permet à un utilisateur d’accé
 6. IDEM
 
 ![Diagramme](1-distributed_web_infrastructure.png)
+![Diagramme](bandeau.png)
 ### Secured and monitored web infrastructure
 
 1. Certificat SSL : Le trafic est chiffré à l’aide d’un certificat SSL
@@ -54,10 +55,12 @@ Concevoir une infrastructure web minimale qui permet à un utilisateur d’accé
 3. 2nd firwall : restreint l'accès aux ressources internes sensibles.
 4. 3rd firwall :  garantit que seules les requêtes autorisées sont transmises des serveurs web aux serveurs d'application. 
 ![Diagramme](2-secured_and_monitored_web_infrastructure.png)
+![Diagramme](bandeau.png)
 ### Scale up
 
 ![Diagramme](3-scale_up.png)
 Ajout d'un load balancer pour rediriger le trafic en cas de défaillance du premier.
+![Diagramme](bandeau.png)
 
 
 ### Conclusion : 

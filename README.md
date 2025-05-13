@@ -1,3 +1,5 @@
+![Diagramme](Infrastructure-Design.png)
+
 #  Web infrastructure design
 
 

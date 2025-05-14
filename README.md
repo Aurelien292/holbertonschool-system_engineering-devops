@@ -59,12 +59,12 @@ Concevoir une infrastructure web minimale qui permet à un utilisateur d’accé
 ## 4) Scale up
 
 1. L'utilisateur veut accéder à un site web, par exemple, www.foobar.com.
-2. Le DNS prend la résolution du nom de domaine (comme www.foobar.com) en une adresse IP (par exemple, 8.8.8.8)
+2. Le DNS prend la résolution du nom de domaine (comme www.foobar.com) en une adresse IP (par exemple, 8.8.8.8).
 3. Le Load Balancer reçoit la requête et la redirige vers le serveurs(Nginx).
-3.1. En __mode cluster__ , si un load balancer tombe en panne, le deuxième prend automatiquement le relais 
-4. Nginx agit comme le serveur web qui gère la requête de l'utilisateur.
-5. Le serveur d'application est responsable de l'exécution de la logique métier.
-6. La base de données stocke toutes les informations nécessaires à l'application
+4. En __mode cluster__ , si un load balancer tombe en panne, le deuxième prend automatiquement le relais. 
+5. Nginx agit comme le serveur web qui gère la requête de l'utilisateur.
+6. Le serveur d'application est responsable de l'exécution de la logique métier.
+7. La base de données stocke toutes les informations nécessaires à l'application.
 
 ![Diagramme](3-scale_up.png)
 Ajout d'un load balancer pour rediriger le trafic en cas de défaillance du premier.

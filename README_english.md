@@ -4,7 +4,7 @@
 
 
 ## Introduction :
-Concevoir une infrastructure web minimale qui permet à un utilisateur d’accéder à un site comme www.foobar.com MAIS, un point de défaillance unique (SPOF), une indisponibilité pendant les maintenances, et aucune capacité à monter en charge. Voyons plus loins maintenant, passons sur des composants séparés et équilibrage de charge et surtout une infrastructure sécurisée et surveillée .
+Design a minimal web infrastructure that allows a user to access a site like www.foobar.com BUT, a single point of failure (SPOF), downtime during maintenance, and no ability to scale. Let's move on to separate components and load balancing and, above all, a secure and monitored infrastructure.
 ![Diagramme](bandeau.png)
 
 
@@ -12,36 +12,36 @@ Concevoir une infrastructure web minimale qui permet à un utilisateur d’accé
 
 
 1. *__Simple web stack__*
-" Un petit web simple convient aux petits projets ou aux environnements de test. "
+" A simple web is suitable for small projects or test environments. "
 
 2. *__Distributed web infrastructure__*
-" Une infrastructure web distribuée, répartit les rôles sur plusieurs serveurs pour améliorer la fiabilité et les performances. "
+" A distributed web infrastructure distributes roles across multiple servers to improve reliability and performance. "
 
 3. *__Secured and monitored web infrastructure__*
- " Une infrastructure web sécurisée et surveillée protège les données et garantit la disponibilité du service "
+ " A secure and monitored web infrastructure protects data and ensures service availability "
 
 4. *__Scale up__*
-" Garantir une disponibilité continue en répartissant intelligemment le trafic et en doublant les points de redondance pour éviter toute interruption. "
+" Ensure continuous availability by intelligently distributing traffic and doubling redundancy points to avoid any interruptions. "
 
 ![Diagramme](bandeau.png)
 
 ## 1) Simple web stack
 
-1. L'utilisateur veut accéder à un site web, par exemple, www.foobar.com.
-2. Le DNS prend la résolution du nom de domaine (comme www.foobar.com) en une adresse IP (par exemple, 8.8.8.8)
-3. Nginx agit comme le serveur web qui gère la requête de l'utilisateur.
-4. Le serveur d'application est responsable de l'exécution de la logique métier.
-5. La base de données stocke toutes les informations nécessaires à l'application
+1. The user wants to access a website, for example, www.foobar.com.
+2. DNS resolves the domain name (like www.foobar.com) to an IP address (e.g. 8.8.8.8)
+3. Nginx acts as the web server that handles the user's request.
+4. The application server is responsible for executing the business logic.
+5. The database stores all the information needed by the application
 
 ![Diagramme](0-simple_web_stack.png)
 ![Diagramme](bandeau.png)
 ## 2) Distributed web infrastructure
- le DNS résout le nom de domaine et redirige la demande vers un load balancer. Ce dernier répartit la charge entre plusieurs serveurs web. Les serveurs web, à leur tour, traitent les requêtes et les envoient aux serveurs d'application pour une logique métier.(trop de traffic)
+ DNS resolves the domain name and redirects the request to a load balancer. The load balancer distributes the load among multiple web servers. The web servers, in turn, process the requests and send them to the application servers for business logic. (Too much traffic)
 
 
 1. IDEM
 2. IDEM
-3. Le Load Balancer reçoit la requête et la redirige vers l’un des serveurs disponibles dans un cluster de serveurs web.
+3. The Load Balancer receives the request and redirects it to one of the available servers in a web server cluster.
 4. IDEM
 5. IDEM
 6. IDEM
@@ -50,27 +50,29 @@ Concevoir une infrastructure web minimale qui permet à un utilisateur d’accé
 ![Diagramme](bandeau.png)
 ## 3) Secured and monitored web infrastructure
 
-1. Certificat SSL : Le trafic est chiffré à l’aide d’un certificat SSL
-2. 1st Firewall :  il bloque tout accès non autorisé et protège le réseau contre des attaques
-3. 2nd firwall : restreint l'accès aux ressources internes sensibles.
-4. 3rd firwall :  garantit que seules les requêtes autorisées sont transmises des serveurs web aux serveurs d'application. 
+1. SSL Certificate: Traffic is encrypted using an SSL certificate
+2. 1st Firewall :  It blocks all unauthorized access and protects the network against attacks
+3. 2nd firwall : Restricts access to sensitive internal resources.
+4. 3rd firwall :  Ensures that only authorized requests are forwarded from web servers to application servers.
 ![Diagramme](2-secured_and_monitored_web_infrastructure.png)
 ![Diagramme](bandeau.png)
 ## 4) Scale up
 
-1. L'utilisateur veut accéder à un site web, par exemple, www.foobar.com.
-2. Le DNS prend la résolution du nom de domaine (comme www.foobar.com) en une adresse IP (par exemple, 8.8.8.8).
-3. Le Load Balancer reçoit la requête et la redirige vers le serveurs(Nginx).
-4. En __mode cluster__ , si un load balancer tombe en panne, le deuxième prend automatiquement le relais. 
-5. Nginx agit comme le serveur web qui gère la requête de l'utilisateur.
-6. Le serveur d'application est responsable de l'exécution de la logique métier.
-7. La base de données stocke toutes les informations nécessaires à l'application.
+1. The user wants to access a website, for example, www.foobar.com.
+2. DNS resolves the domain name (like www.foobar.com) to an IP address (like 8.8.8.8).
+3. The Load Balancer receives the request and redirects it to the servers (Nginx).
+4. In __cluster mode__ , if one load balancer fails, the second one automatically takes over.
+5. Nginx acts as the web server that handles the user's request.
+6. The application server is responsible for executing the business logic.
+7. The database stores all the information needed by the application.
 
 ![Diagramme](3-scale_up.png)
-Ajout d'un load balancer pour rediriger le trafic en cas de défaillance du premier.
+
+Added a load balancer to redirect traffic if the first one fails.
+
 ![Diagramme](bandeau.png)
 
 
 ## Conclusion : 
 
-Pour une infrastructure web efficace, il est crucial d'avoir un bon équilibre entre sécurité, disponibilité, performance, évolutivité et surveillance.
+For an efficient web infrastructure, it is crucial to have a good balance between security, availability, performance, scalability and monitoring.
